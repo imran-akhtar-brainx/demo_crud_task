@@ -1,0 +1,27 @@
+
+<div class="container mt-3">
+  <h2><%= @hiring_position.name %></h2>
+  <p>Image at the top (card-img-top):</p>
+  <div class="card" style="width:400px">
+    <%= image_tag @hiring_position.image if @hiring_position.image.attached? %>
+    <div class="card-body">
+      <h4 class="card-title"><%= @hiring_position.name %></h4>
+      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+    
+      <div class = "btn btn-primary mr-3">
+        <%= link_to "Add Candidate",new_hiring_position_candidate_path(hiring_position_id: @hiring_position.id), :class => "btn" %> |
+        <%= link_to "Show All cantidates", hiring_position_candidates_path(hiring_position_id: @hiring_position.id), :class => "btn" %>
+      </div>
+      <br>
+      <ul>
+          <li><%= link_to "Edit", edit_hiring_position_path(@hiring_position) %></li>
+          <li><%= link_to "Destroy", hiring_position_path(@hiring_position), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+      </ul>
+
+    </div>
+  </div>
+  <br>
+</div>

@@ -1,0 +1,49 @@
+
+
+
+
+
+<h1 class = "justify-content-center">Hiring Positions</h1>
+
+  <div class = "btn btn-primary mr-3">
+          <%= link_to "Add Position", new_hiring_position_path, :class => "btn" %>
+  </div>
+<div class="container d-flex flex-wrap">
+  <% @hiring_positions.each do |hiring_position| %>
+    
+    <div class="card" style="width:400px">
+    <%= image_tag hiring_position.image if hiring_position.image.attached? %>
+    <div class="card-body">
+      <h4 class="card-title"><%= hiring_position.name %></h4>
+      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+    
+      <div class = "btn btn-primary mr-3">
+        <%= link_to "Edit", edit_hiring_position_path(hiring_position), :class => "btn" %> |
+        <%= link_to "Cantidates", hiring_position_candidates_path(hiring_position_id: hiring_position.id), :class => "btn" %>
+      </div>
+
+    </div>
+  </div>
+    
+    
+    
+  
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
