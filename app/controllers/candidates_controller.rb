@@ -12,7 +12,7 @@ class CandidatesController < ApplicationController
   def create
       @hiring_position = HiringPosition.find(params[:hiring_position_id])
       @candidate = @hiring_position.candidates.create(candidate_params)
-      redirect_to hiring_position_path(@hiring_position)
+      redirect_to hiring_position_candidates_path(@hiring_position)
   end
   
   def edit
@@ -32,8 +32,7 @@ def update
   end
 end  
 
-def destroy  
-  debugger
+def destroy
   @hiring_position = HiringPosition.find(params[:hiring_position_id])
   @candidate = @hiring_position.candidates.find(params[:id])
   @candidate.destroy

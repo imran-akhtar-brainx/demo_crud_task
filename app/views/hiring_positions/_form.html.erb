@@ -1,0 +1,17 @@
+<h1>New hiring_position</h1>
+<%=form_with model: hiring_position do |form|%>
+<div>
+<%= form.label :name %><br>
+<%= form.text_field :name %>
+</div>
+
+<div>
+<%= form.label :image, style: "display: block" %>
+<%= form.file_field :image%>
+</div>
+
+<div>
+    <%= form.submit %>
+</div>
+
+<% end %>

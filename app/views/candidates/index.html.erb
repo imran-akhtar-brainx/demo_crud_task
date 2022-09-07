@@ -1,17 +1,23 @@
 <h1>Candidate List</h1>
+<div class = "btn btn-primary">
+  <%= link_to "Home", root_path , :class => "btn"%>
+</div>
+
+ <div class = "btn btn-primary mr-3">
+        <%= link_to "Add Candidate",new_hiring_position_candidate_path(hiring_position_id: @hiring_position.id), :class => "btn" %>
+  </div>
 
 <div class="container d-flex flex-wrap">
   <% @candidates.each do |candidate| %>
-    <>
     <div class="card" style="width:400px">
     <%= image_tag candidate.image if candidate.image.attached? %>
     <div class="card-body">
       <h4 class="card-title"><%= candidate.name %></h4>
       <p class="card-text"><%= candidate.address %></p>
     
-      <div class = "btn btn-primary mr-3">
+      <div class = "btn btn-primary mr-3 flex">
         <%= link_to "Edit", edit_hiring_position_candidate_path(hiring_position_id: @hiring_position.id ,id: candidate.id), :class => "btn" %> |
-        <%= link_to "Destroy", hiring_position_candidate_path(hiring_position_id: @hiring_position.id ,id: candidate.id), data: {
+        <%= link_to "Destroy", hiring_position_candidate_path(hiring_position_id: @hiring_position.id ,id: candidate.id), :class => "btn", data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   }  %>
